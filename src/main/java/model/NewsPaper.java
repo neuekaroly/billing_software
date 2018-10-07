@@ -12,12 +12,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "newspapers")
 public class NewsPaper {
-    public NewsPaper(String name, int workingHour) {
-        this.name = name;
-        this.workingHour = workingHour;
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,5 +24,16 @@ public class NewsPaper {
     private String name;
 
     @Column(name = "workinghour")
-    private int workingHour;
+    private double workingHour;
+
+    public NewsPaper(String name, double workingHour) {
+        this.name = name;
+        this.workingHour = workingHour;
+    }
+
+    @Override
+    public String toString() {
+        return "Name of the newspaper: " + name + " working hours: " + workingHour;
+    }
 }
+
